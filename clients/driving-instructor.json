@@ -1,0 +1,35 @@
+{
+  "id": "smith-driving-school",
+  "businessName": "Smith Driving School",
+  "agentName": "Olivia",
+  "timezone": "Europe/London",
+
+  "voice": {
+    "provider": "11labs",
+    "voiceId": "REPLACE_WITH_ELEVENLABS_VOICE_ID"
+  },
+
+  "calcom": {
+    "apiKey": "",
+    "eventTypeId": 0,
+    "lengthMinutes": 60
+  },
+
+  "businessInfo": {
+    "services": "Manual and automatic driving lessons, Pass Plus, and intensive courses",
+    "areas": "Manchester, Salford, and Stockport",
+    "hourlyRate": "38 pounds per hour, or 350 pounds for a 10-hour block",
+    "hours": "Monday to Saturday, 8am to 7pm"
+  },
+
+  "faq": [
+    { "q": "Do you teach automatic?", "a": "Yes, we teach both manual and automatic." },
+    { "q": "Do you do intensive courses?", "a": "Yes, we offer intensive and semi-intensive courses, ask the instructor for current availability." },
+    { "q": "Can I use my own car?", "a": "Lessons are in the instructor's dual-control car." }
+  ],
+
+  "_vapi": {
+    "assistantId": null,
+    "phoneNumberId": null
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --version)",
+      "Bash(pnpm install *)",
+      "Bash(SERVER_URL=https://example.ngrok.app node --input-type=module -e ' *)",
+      "Bash(PORT=3999 node --input-type=module -e ' *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\MM\\.claude\\projects\\c--Users-MM-Desktop-Ai-Phone-Scheduler\\memory"
+    ]
+  }
+}
