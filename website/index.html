@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phone Phoebe — The AI receptionist for UK small businesses</title>
+  <meta name="description" content="Phoebe is your AI receptionist. She answers every call, books the job and texts you the details — 24/7, from £39/month. Never miss a customer again." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="brand" aria-label="Phone Phoebe home">
+        <img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="brand__logo" />
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#how">How it works</a>
+        <a href="#why">Why Phoebe</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="#pricing" class="btn btn--ghost">Log in</a>
+        <a href="#pricing" class="btn btn--primary">Try Phoebe free</a>
+      </div>
+
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__copy reveal">
+          <span class="eyebrow">📞 Your AI phone receptionist</span>
+          <h1 class="hero__title">
+            Never miss<br />another <span class="grad">call.</span>
+          </h1>
+          <p class="hero__sub">
+            Phoebe answers every call you can't, captures the job details and
+            texts them straight to your phone. A real-sounding receptionist,
+            working 24/7 — for a fraction of the cost of hiring one.
+          </p>
+          <div class="hero__cta">
+            <a href="#pricing" class="btn btn--primary btn--lg">Try Phoebe free</a>
+            <a href="#demo" class="btn btn--soft btn--lg">▶ Hear a demo</a>
+          </div>
+          <p class="hero__note">7-day free trial · No card needed · Keep your number</p>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="canvas-wrap">
+            <canvas id="scene"></canvas>
+          </div>
+          <div class="floating-card floating-card--1">
+            <span class="dot"></span> Incoming call answered
+          </div>
+          <div class="floating-card floating-card--2">
+            <strong>New booking</strong><br />Tue 2pm · Driving lesson
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust">
+      <div class="container">
+        <p class="trust__label">Built for the businesses people actually phone</p>
+        <div class="trust__stats">
+          <div class="stat reveal"><span class="stat__num" data-count="100" data-suffix="%">0%</span><span class="stat__label">of calls answered</span></div>
+          <div class="stat reveal"><span class="stat__num" data-count="24" data-suffix="/7">0</span><span class="stat__label">always on, day &amp; night</span></div>
+          <div class="stat reveal"><span class="stat__num" data-prefix="£" data-count="39">£0</span><span class="stat__label">a month to start</span></div>
+          <div class="stat reveal"><span class="stat__num" data-count="60" data-suffix="s">0s</span><span class="stat__label">to set up</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">How it works</span>
+          <h2>Up and running before your next call</h2>
+          <p>No apps to learn, no new hardware. Tell Phoebe about your business and forward your calls — she does the rest.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal"><span class="step__n">1</span><h3>Tell Phoebe your business</h3><p>Your services, prices, hours and the questions you always get asked.</p></div>
+          <div class="step reveal"><span class="step__n">2</span><h3>Forward your calls</h3><p>Point your existing number at Phoebe — keep the number you already have.</p></div>
+          <div class="step reveal"><span class="step__n">3</span><h3>Phoebe answers &amp; books</h3><p>She talks naturally, answers questions and books straight into your calendar.</p></div>
+          <div class="step reveal"><span class="step__n">4</span><h3>You get the details</h3><p>An instant text and email with the caller, the job and what they need.</p></div>
+          <div class="step reveal"><span class="step__n">5</span><h3>On or off, anytime</h3><p>Use Phoebe after hours, when you're busy, or 24/7. You're always in control.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY PHOEBE ============ -->
+    <section class="section section--alt" id="why">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Why businesses choose Phoebe</span>
+          <h2>A missed call is a missed customer</h2>
+          <p>Most callers won't leave a voicemail — they just ring the next business. Phoebe makes sure that business is yours.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal"><div class="card__ico">📲</div><h3>Answers, never voicemail</h3><p>Every call is picked up and handled like a real conversation — no robotic menus, no "leave a message".</p></article>
+          <article class="card reveal"><div class="card__ico">📅</div><h3>Books the job for you</h3><p>Phoebe checks your live availability and books appointments straight into your calendar.</p></article>
+          <article class="card reveal"><div class="card__ico">💷</div><h3>Cheaper than staff</h3><p>From £39/month with unlimited minutes — a fraction of a receptionist or call-centre.</p></article>
+          <article class="card reveal"><div class="card__ico">🗣️</div><h3>Sounds genuinely human</h3><p>A warm, natural voice that callers are comfortable talking to — not an obvious bot.</p></article>
+          <article class="card reveal"><div class="card__ico">🎯</div><h3>Trained on your business</h3><p>She knows your prices, your services and your FAQs, so answers are always right.</p></article>
+          <article class="card reveal"><div class="card__ico">🎛️</div><h3>You stay in control</h3><p>Turn Phoebe on and off, change her answers and read every transcript whenever you like.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEMO ============ -->
+    <section class="section" id="demo">
+      <div class="container demo__grid">
+        <div class="demo__copy reveal">
+          <span class="eyebrow">See Phoebe in action</span>
+          <h2>Hear how a real call goes</h2>
+          <p>While you're on a job, Phoebe is on the phone — taking the booking, capturing the details and never putting a caller on hold.</p>
+          <a href="#pricing" class="btn btn--primary btn--lg">Start your free trial</a>
+        </div>
+
+        <div class="phone-demo reveal">
+          <div class="phone-demo__bar"><span class="dot dot--live"></span> Live call · 00:42</div>
+          <div class="chat">
+            <div class="bubble bubble--in">Hi, do you have any lessons free this week?</div>
+            <div class="bubble bubble--out">Hi! Yes — I've got Tuesday at 2pm or Thursday at 10am. Which suits you best?</div>
+            <div class="bubble bubble--in">Tuesday's perfect.</div>
+            <div class="bubble bubble--out">Lovely. Can I take your name and number to confirm the booking?</div>
+            <div class="bubble bubble--in">Sam, 07700 900123.</div>
+            <div class="bubble bubble--out">Thanks Sam — you're booked in for Tuesday at 2pm. You'll get a text shortly. 👍</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section section--alt" id="pricing">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Simple pricing</span>
+          <h2>Unlimited calls. No contracts.</h2>
+          <p>Every plan includes unlimited minutes — no per-call charges and no surprises. Cancel any time.</p>
+        </div>
+
+        <div class="plans">
+          <article class="plan reveal">
+            <h3 class="plan__name">Basic</h3>
+            <p class="plan__for">For small businesses just getting started</p>
+            <div class="plan__price"><span class="plan__amt">£39</span><span class="plan__per">/month</span></div>
+            <a href="#pricing" class="btn btn--soft btn--block">Get started</a>
+            <ul class="plan__features">
+              <li>Unlimited minutes</li>
+              <li>AI phone answering</li>
+              <li>Email &amp; text notifications</li>
+              <li>Smart questions</li>
+              <li>AI trained on your business</li>
+              <li class="muted">Bookings</li>
+              <li class="muted">Call transfers</li>
+              <li class="muted">Team members</li>
+              <li class="muted">Integrations (via Zapier)</li>
+              <li class="muted">Priority support</li>
+            </ul>
+          </article>
+
+          <article class="plan plan--featured reveal">
+            <span class="plan__badge">Most popular</span>
+            <h3 class="plan__name">Professional</h3>
+            <p class="plan__for">Our most popular plan for growing businesses</p>
+            <div class="plan__price"><span class="plan__amt">£89</span><span class="plan__per">/month</span></div>
+            <a href="#pricing" class="btn btn--primary btn--block">Get started</a>
+            <ul class="plan__features">
+              <li>Unlimited minutes</li>
+              <li>AI phone answering</li>
+              <li>Email &amp; text notifications</li>
+              <li>Smart questions</li>
+              <li>AI trained on your business</li>
+              <li>Bookings</li>
+              <li>Call transfers</li>
+              <li>Team members</li>
+              <li>Integrations (via Zapier)</li>
+              <li class="muted">Priority support</li>
+            </ul>
+          </article>
+
+          <article class="plan reveal">
+            <h3 class="plan__name">Premium</h3>
+            <p class="plan__for">For established businesses with higher call volume</p>
+            <div class="plan__price"><span class="plan__amt">£189</span><span class="plan__per">/month</span></div>
+            <a href="#pricing" class="btn btn--soft btn--block">Get started</a>
+            <ul class="plan__features">
+              <li>Unlimited minutes</li>
+              <li>AI phone answering</li>
+              <li>Email &amp; text notifications</li>
+              <li>Smart questions</li>
+              <li>AI trained on your business</li>
+              <li>Bookings</li>
+              <li>Call transfers</li>
+              <li>Team members</li>
+              <li>Integrations (via Zapier)</li>
+              <li>Priority support</li>
+            </ul>
+          </article>
+        </div>
+        <p class="plans__note">All plans start with a 7-day free trial — no card required.</p>
+      </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section class="section" id="industries">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Who we help</span>
+          <h2>If your phone rings, Phoebe can answer it</h2>
+        </div>
+        <div class="chips reveal">
+          <span>Driving instructors</span><span>Salons &amp; barbers</span><span>Dentists</span>
+          <span>Plumbers</span><span>Electricians</span><span>Cleaners</span><span>Gardeners</span>
+          <span>Beauticians</span><span>Tattoo studios</span><span>Vets</span><span>Solicitors</span>
+          <span>Accountants</span><span>Garages</span><span>Removals</span><span>Tutors</span>
+          <span>Physios</span><span>Builders</span><span>Estate agents</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--alt" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head reveal">
+          <span class="eyebrow">FAQs</span>
+          <h2>Questions, answered</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq__item reveal"><summary>Will callers know it's an AI?</summary><p>Phoebe sounds warm and natural, and most callers simply feel well looked after. You can choose whether she introduces herself as a virtual assistant — it's your call.</p></details>
+          <details class="faq__item reveal"><summary>Do I have to change my phone number?</summary><p>No. You keep your existing number and simply forward calls to Phoebe whenever you want her to answer — all the time, after hours, or only when you're busy.</p></details>
+          <details class="faq__item reveal"><summary>How long does setup take?</summary><p>Most businesses are live in under a minute. You tell Phoebe about your services, prices and hours, and she's ready to take calls.</p></details>
+          <details class="faq__item reveal"><summary>What does Phoebe capture on a call?</summary><p>The caller's name, the reason they're ringing, their location and any booking details — sent to you instantly by text and email, with a full transcript.</p></details>
+          <details class="faq__item reveal"><summary>Is it really unlimited minutes?</summary><p>Yes. Every plan includes unlimited call minutes — no per-minute charges and no contracts. You can cancel any time.</p></details>
+          <details class="faq__item reveal"><summary>Which businesses is Phoebe good for?</summary><p>Any local service business that takes bookings or enquiries by phone — from driving instructors and salons to tradespeople and clinics.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="cta">
+      <div class="container cta__inner reveal">
+        <h2>Never miss a call again.</h2>
+        <p>Give Phoebe a try free for 7 days. Set her up in a minute and hear the difference on your very next call.</p>
+        <div class="hero__cta">
+          <a href="#pricing" class="btn btn--white btn--lg">Try Phoebe free</a>
+          <a href="mailto:corkhill17@gmail.com" class="btn btn--outline btn--lg">Talk to us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="#top" class="brand brand--footer"><img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="brand__logo brand__logo--footer" /></a>
+        <p class="footer__tag">The AI receptionist for UK small businesses.</p>
+      </div>
+      <div class="footer__col"><h4>Product</h4><a href="#how">How it works</a><a href="#why">Why Phoebe</a><a href="#pricing">Pricing</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="#">About</a><a href="mailto:corkhill17@gmail.com">Contact</a><a href="#">Blog</a></div>
+      <div class="footer__col"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <div class="container footer__bar">
+      <span>© <span id="year"></span> Phone Phoebe. All rights reserved.</span>
+      <span>Made in the UK 🇬🇧</span>
+    </div>
+  </footer>
+
+  <!-- Three.js (global build, works on file:// and over http) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/scene.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
