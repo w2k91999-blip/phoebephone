@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Phone Phoebe</title>
+  <meta name="description" content="Phone Phoebe is the AI receptionist built for UK small businesses. Find out who we are and why we built Phoebe." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <style>
+    .inner-hero{padding:80px 0 60px;text-align:center}
+    .inner-hero .eyebrow{margin-bottom:1.2rem}
+    .inner-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:1rem}
+    .inner-hero p{font-size:1.15rem;max-width:36em;margin:0 auto}
+
+    .prose{padding:64px 0 80px}
+    .prose-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .prose-body h2{font-size:1.7rem;margin-bottom:.8rem;margin-top:2.2rem}
+    .prose-body h2:first-child{margin-top:0}
+    .prose-body p{font-size:1.05rem;margin-bottom:1.1rem;line-height:1.7}
+    .prose-body ul{padding-left:1.3rem;margin-bottom:1.1rem}
+    .prose-body li{font-size:1.05rem;margin-bottom:.5rem;line-height:1.65}
+
+    .stat-aside{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);padding:2rem;position:sticky;top:110px}
+    .stat-aside h3{font-size:1.1rem;margin-bottom:1.4rem}
+    .aside-stat{text-align:center;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+    .aside-stat:last-child{border-bottom:none;padding-bottom:0}
+    .aside-stat__n{display:block;font-family:var(--display);font-weight:800;font-size:2rem;color:var(--ink)}
+    .aside-stat__l{display:block;font-size:.88rem;color:var(--body);margin-top:.2rem}
+
+    .values{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+    .value-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow-sm)}
+    .value-card__ico{font-size:1.6rem;margin-bottom:.8rem}
+    .value-card h3{font-size:1.05rem;margin-bottom:.45rem}
+    .value-card p{font-size:.92rem}
+
+    .cta{padding:30px 0 90px}
+    .cta__inner{background:linear-gradient(120deg,#0d2e12,#1a6b2e 55%,#2d8b42);border-radius:32px;padding:64px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+    .cta__inner::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.14),transparent 40%),radial-gradient(circle at 85% 80%,rgba(92,184,92,.4),transparent 45%);pointer-events:none}
+    .cta__inner h2{color:#fff;font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:.7rem;position:relative}
+    .cta__inner p{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:32em;margin:0 auto 1.8rem;position:relative}
+    .cta__inner .hero__cta{justify-content:center;position:relative}
+
+    @media(max-width:860px){
+      .prose-grid{grid-template-columns:1fr}
+      .stat-aside{position:static}
+      .values{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){.values{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Phone Phoebe home">
+        <img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="brand__logo" />
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#why">Why Phoebe</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="nav__actions" id="navActions">
+        <button class="btn btn--ghost" id="navLogin">Log in</button>
+        <button class="btn btn--primary" id="navSignup">Try Phoebe free</button>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- INNER HERO -->
+    <section class="inner-hero section--alt">
+      <div class="container">
+        <span class="eyebrow">About Phone Phoebe</span>
+        <h1>Built for businesses<br />that run on phone calls</h1>
+        <p>We built Phoebe because small businesses in the UK were losing customers every time their phone rang and went unanswered. There had to be a better way.</p>
+      </div>
+    </section>
+
+    <!-- PROSE + ASIDE -->
+    <section class="prose">
+      <div class="container prose-grid">
+
+        <div class="prose-body">
+          <h2>The problem we're solving</h2>
+          <p>Every day, UK tradespeople, driving instructors, salon owners and local professionals miss calls — not because they don't care, but because they're busy doing the actual work. They're mid-lesson, up a ladder, or with a client in the chair.</p>
+          <p>Most callers won't leave a voicemail. They'll just ring the next business in the Google results. That's a lost booking, a lost customer, and money that never shows up in your bank account.</p>
+          <p>A human receptionist costs £20,000+ a year. An answering service is impersonal and misses the nuance of your business. And both still leave you with the admin of calling back.</p>
+
+          <h2>What Phoebe does</h2>
+          <p>Phoebe is a warm, natural-sounding AI receptionist that answers your calls when you can't. She knows your services, your prices, your hours, and your most common questions — because you tell her. She answers in your business's name, books straight into your calendar, and texts you the details the moment the call ends.</p>
+          <p>You keep your existing number. Setup takes under a minute. And from £39 a month, she costs less per day than a cup of coffee.</p>
+
+          <h2>Who we help</h2>
+          <p>Phone Phoebe was built first for driving instructors — there are over 39,000 approved driving instructors in the UK, and almost all of them run their business alone. But Phoebe works for any local service business that takes bookings or enquiries by phone:</p>
+          <ul>
+            <li>Driving instructors</li>
+            <li>Salons and barbers</li>
+            <li>Tradespeople (plumbers, electricians, builders)</li>
+            <li>Cleaners and gardeners</li>
+            <li>Clinics, dentists and physios</li>
+            <li>Solicitors and accountants</li>
+            <li>Removal companies and estate agents</li>
+          </ul>
+          <p>If your phone rings and you can't always answer it, Phoebe is for you.</p>
+
+          <h2>Who we are</h2>
+          <p>Phone Phoebe was founded by Chris Corkhill, a UK-based entrepreneur who has spent years working alongside small business owners. Chris built the product after watching too many hard-working people lose business to a ringing phone they couldn't pick up.</p>
+          <p>We're a small, focused team. We ship fast, we listen to our customers, and we measure success by the bookings Phoebe wins for the businesses she serves.</p>
+
+          <h2>Get in touch</h2>
+          <p>Questions, feedback, or want to talk through whether Phoebe is right for your business? We'd love to hear from you.</p>
+          <p><a href="mailto:corkhill17@gmail.com" style="color:var(--accent-ink);font-weight:600;text-decoration:underline">corkhill17@gmail.com</a></p>
+        </div>
+
+        <aside>
+          <div class="stat-aside">
+            <h3>Phone Phoebe by the numbers</h3>
+            <div class="aside-stat">
+              <span class="aside-stat__n">100%</span>
+              <span class="aside-stat__l">of calls answered, every time</span>
+            </div>
+            <div class="aside-stat">
+              <span class="aside-stat__n">24/7</span>
+              <span class="aside-stat__l">always on — even at 2am</span>
+            </div>
+            <div class="aside-stat">
+              <span class="aside-stat__n">60s</span>
+              <span class="aside-stat__l">average setup time</span>
+            </div>
+            <div class="aside-stat">
+              <span class="aside-stat__n">£39</span>
+              <span class="aside-stat__l">a month to get started</span>
+            </div>
+            <div class="aside-stat">
+              <span class="aside-stat__n">£1.30</span>
+              <span class="aside-stat__l">a day — less than a coffee</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section section--alt" id="values">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">What we stand for</span>
+          <h2>Our values</h2>
+        </div>
+        <div class="values">
+          <div class="value-card">
+            <div class="value-card__ico">📞</div>
+            <h3>No missed calls</h3>
+            <p>Every call is a potential booking. We exist to make sure your customers always reach someone — even when that someone is Phoebe.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__ico">🗣️</div>
+            <h3>Honest AI</h3>
+            <p>Phoebe sounds natural because callers deserve a good experience. We'll never pretend she's human — but we make sure she's genuinely helpful.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__ico">💷</div>
+            <h3>Fair pricing</h3>
+            <p>Small businesses shouldn't need enterprise budgets to answer their phones. We keep our pricing simple, honest, and accessible from day one.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__ico">🔐</div>
+            <h3>Privacy first</h3>
+            <p>Your callers trust you with their details. We take that seriously — every call is handled with care and full compliance with UK data protection law.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__ico">🎛️</div>
+            <h3>You're always in control</h3>
+            <p>Turn Phoebe on or off whenever you like. Change what she says, read every transcript, cancel any time. This is your business — Phoebe works for you.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__ico">🇬🇧</div>
+            <h3>Built for the UK</h3>
+            <p>Phoebe speaks British English, handles UK booking conventions, and is built around how UK small businesses actually work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container cta__inner">
+        <h2>Never miss a call again.</h2>
+        <p>Try Phoebe free for 7 days. No card required, no contracts, and setup takes 60 seconds.</p>
+        <div class="hero__cta">
+          <button class="btn btn--white btn--lg" data-auth="signup">Try Phoebe free</button>
+          <a href="mailto:corkhill17@gmail.com" class="btn btn--outline btn--lg">Talk to us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="brand brand--footer"><img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="brand__logo brand__logo--footer" /></a>
+        <p class="footer__tag">The AI receptionist for UK small businesses.</p>
+      </div>
+      <div class="footer__col"><h4>Product</h4><a href="index.html#how">How it works</a><a href="index.html#why">Why Phoebe</a><a href="index.html#pricing">Pricing</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="about.html">About</a><a href="mailto:corkhill17@gmail.com">Contact</a><a href="#">Blog</a></div>
+      <div class="footer__col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+    <div class="container footer__bar">
+      <span>© <span id="year"></span> Phone Phoebe. All rights reserved.</span>
+      <span>Made in the UK 🇬🇧</span>
+    </div>
+  </footer>
+
+  <!-- AUTH MODAL (same as index) -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Close">✕</button>
+      <img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="modal__logo" />
+      <div class="modal__tabs" id="modalTabs" role="tablist">
+        <button class="modal__tab active" data-tab="login" role="tab">Log in</button>
+        <button class="modal__tab" data-tab="signup" role="tab">Create account</button>
+      </div>
+      <div class="modal__plan-badge" id="modalPlanBadge" style="display:none">
+        <span>📋</span> <span id="modalPlanLabel"></span> plan selected
+      </div>
+      <div class="modal__error" id="modalError" role="alert"></div>
+      <div id="panelLogin">
+        <h2 id="modalTitle">Welcome back</h2>
+        <p class="modal__sub">Sign in to your Phone Phoebe account.</p>
+        <form id="formLogin" novalidate>
+          <div class="form-group"><label for="loginEmail">Email address</label><input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required /></div>
+          <div class="form-group"><label for="loginPassword">Password</label><input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required /></div>
+          <div class="modal__forgot"><a id="forgotLink">Forgot password?</a></div>
+          <button type="submit" class="modal__submit" id="loginBtn">Sign in</button>
+        </form>
+        <p class="modal__switch">No account? <a id="switchToSignup">Create one free</a></p>
+      </div>
+      <div id="panelSignup" style="display:none">
+        <h2>Start your free trial</h2>
+        <p class="modal__sub">7 days free — no card required. Set up takes 60 seconds.</p>
+        <form id="formSignup" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label for="signupName">Your name</label><input type="text" id="signupName" placeholder="Jane Smith" autocomplete="name" required /></div>
+            <div class="form-group"><label for="signupBusiness">Business name</label><input type="text" id="signupBusiness" placeholder="Smith Plumbing" required /></div>
+          </div>
+          <div class="form-group"><label for="signupEmail">Email address</label><input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email" required /></div>
+          <div class="form-group"><label for="signupPassword">Password</label><input type="password" id="signupPassword" placeholder="Min 8 characters" autocomplete="new-password" required minlength="8" /></div>
+          <input type="hidden" id="signupPlan" value="" />
+          <button type="submit" class="modal__submit" id="signupBtn">Create free account</button>
+        </form>
+        <p class="modal__switch">Already have an account? <a id="switchToLogin">Sign in</a></p>
+      </div>
+      <div id="panelSuccess" style="display:none" class="modal__success">
+        <span class="success-ico">🎉</span>
+        <h3>You're in! Check your email</h3>
+        <p>We've sent a confirmation link to your inbox. Click it and Phoebe will be ready to answer your first call.</p>
+      </div>
+      <div id="panelReset" style="display:none">
+        <h2>Reset password</h2>
+        <p class="modal__sub">Enter your email and we'll send a reset link.</p>
+        <form id="formReset" novalidate>
+          <div class="form-group"><label for="resetEmail">Email address</label><input type="email" id="resetEmail" placeholder="you@example.com" autocomplete="email" required /></div>
+          <button type="submit" class="modal__submit" id="resetBtn">Send reset link</button>
+        </form>
+        <p class="modal__switch"><a id="backToLogin">← Back to login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

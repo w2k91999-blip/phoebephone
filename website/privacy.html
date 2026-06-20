@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Phone Phoebe</title>
+  <meta name="description" content="Phone Phoebe's privacy policy — how we collect, use and protect your data in line with UK GDPR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <style>
+    .inner-hero{padding:80px 0 60px;text-align:center;background:var(--bg-alt)}
+    .inner-hero .eyebrow{margin-bottom:1.2rem}
+    .inner-hero h1{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1rem}
+    .inner-hero p{font-size:1.05rem;max-width:38em;margin:0 auto;color:var(--muted)}
+
+    .legal-body{padding:64px 0 100px}
+    .legal-body .container{max-width:780px}
+
+    .legal-body h2{font-size:1.45rem;margin:2.6rem 0 .75rem;color:var(--ink)}
+    .legal-body h2:first-child{margin-top:0}
+    .legal-body h3{font-size:1.1rem;margin:1.6rem 0 .5rem;color:var(--ink)}
+    .legal-body p{font-size:1rem;margin-bottom:.95rem;line-height:1.75;color:var(--body)}
+    .legal-body ul,.legal-body ol{padding-left:1.4rem;margin-bottom:1rem}
+    .legal-body li{font-size:1rem;margin-bottom:.45rem;line-height:1.65;color:var(--body)}
+    .legal-body a{color:var(--accent-ink);text-decoration:underline}
+    .legal-body strong{color:var(--ink)}
+
+    .legal-meta{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.1rem 1.4rem;margin-bottom:2.6rem;font-size:.92rem;color:var(--muted)}
+    .legal-meta span{font-weight:600;color:var(--body)}
+
+    hr.rule{border:none;border-top:1px solid var(--line);margin:2.4rem 0}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Phone Phoebe home">
+        <img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="brand__logo" />
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#why">Why Phoebe</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="nav__actions" id="navActions">
+        <button class="btn btn--ghost" id="navLogin">Log in</button>
+        <button class="btn btn--primary" id="navSignup">Try Phoebe free</button>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="inner-hero">
+      <div class="container">
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p>We keep this plain and honest. Here's exactly what data we collect, why we need it, and how we look after it.</p>
+      </div>
+    </section>
+
+    <section class="legal-body">
+      <div class="container">
+
+        <div class="legal-meta">
+          <span>Last updated:</span> June 2026 &nbsp;·&nbsp; <span>Applies to:</span> phonephoebe.co.uk and the Phone Phoebe service
+        </div>
+
+        <h2>1. Who we are</h2>
+        <p><strong>Phone Phoebe</strong> ("we", "us", "our") is a trading name operated by Chris Corkhill, based in the United Kingdom. We operate the website at <strong>phonephoebe.co.uk</strong> and provide an AI phone receptionist service to UK businesses ("the Service").</p>
+        <p>For the purposes of UK data protection law, Phone Phoebe is the <strong>data controller</strong> for personal data collected through our website and our platform. Where your business uses Phoebe to handle calls, you (the business) are the data controller for your callers' data, and Phone Phoebe acts as a <strong>data processor</strong> on your behalf.</p>
+        <p>Contact us about data protection matters: <a href="mailto:corkhill17@gmail.com">corkhill17@gmail.com</a></p>
+
+        <hr class="rule" />
+
+        <h2>2. What data we collect and why</h2>
+
+        <h3>2a. Account and business data</h3>
+        <p>When you sign up for Phone Phoebe, we collect:</p>
+        <ul>
+          <li>Your name and email address</li>
+          <li>Your business name</li>
+          <li>Your password (stored securely — never in plain text)</li>
+          <li>Business information you provide to configure Phoebe (services, prices, hours, FAQs)</li>
+        </ul>
+        <p><strong>Why:</strong> To create your account, deliver the Service, and personalise Phoebe to your business.</p>
+        <p><strong>Legal basis:</strong> Performance of a contract (Article 6(1)(b) UK GDPR).</p>
+
+        <h3>2b. Call data and transcripts</h3>
+        <p>When Phoebe answers calls on your behalf, the following data is generated and stored:</p>
+        <ul>
+          <li>Audio recordings of calls</li>
+          <li>Text transcripts of conversations</li>
+          <li>Caller details captured during the call (name, phone number, booking information)</li>
+          <li>Call metadata (time, duration, outcome)</li>
+        </ul>
+        <p><strong>Why:</strong> To deliver the answering and booking service, send you call summaries, and allow you to review your call history.</p>
+        <p><strong>Legal basis:</strong> Performance of a contract; Legitimate interests (improving the quality and accuracy of the Service).</p>
+        <p><strong>Important:</strong> Call recordings and transcripts may contain personal data belonging to your callers. As the business using our Service, you are responsible for informing callers that calls may be recorded and handled by an AI assistant, and for having a lawful basis to process that data under UK GDPR.</p>
+
+        <h3>2c. Booking and calendar data</h3>
+        <p>When Phoebe books an appointment, she communicates with your calendar provider (Cal.com) using credentials you authorise. We access only the data needed to check availability and create bookings — we do not store your full calendar.</p>
+
+        <h3>2d. Payment data</h3>
+        <p>Subscription payments are processed by <strong>Stripe</strong>. We do not store your card details — these are held securely by Stripe under PCI-DSS compliance. We receive and retain records of subscription status, plan type, and payment history.</p>
+
+        <h3>2e. Website usage data</h3>
+        <p>When you visit phonephoebe.co.uk, we may collect standard web analytics data including pages visited, time on site, referral source, and device/browser type. This helps us understand how people find us and improve the site.</p>
+        <p><strong>Legal basis:</strong> Legitimate interests.</p>
+
+        <hr class="rule" />
+
+        <h2>3. How we use your data</h2>
+        <ul>
+          <li>To set up and run your Phone Phoebe account and configure Phoebe for your business</li>
+          <li>To answer calls and book appointments on your behalf</li>
+          <li>To send you call summaries, booking confirmations, and service notifications by text and email</li>
+          <li>To process subscription payments and manage your account</li>
+          <li>To provide customer support</li>
+          <li>To improve and develop the Service (using aggregated or anonymised data where possible)</li>
+          <li>To comply with legal obligations</li>
+        </ul>
+        <p>We will not sell your personal data to third parties. We will not use your data for unrelated marketing without your explicit consent.</p>
+
+        <hr class="rule" />
+
+        <h2>4. Who we share data with</h2>
+        <p>To deliver the Service, we work with a small number of trusted third-party providers. Each is bound by data processing agreements and appropriate safeguards:</p>
+        <ul>
+          <li><strong>Vapi</strong> — voice orchestration platform that runs the phone agent</li>
+          <li><strong>OpenAI</strong> — AI language model that powers Phoebe's responses (GPT-4o-mini)</li>
+          <li><strong>ElevenLabs</strong> — text-to-speech provider that gives Phoebe her voice</li>
+          <li><strong>Deepgram</strong> — speech-to-text transcription of calls</li>
+          <li><strong>Cal.com</strong> — calendar and booking management</li>
+          <li><strong>Supabase</strong> — secure database and authentication platform</li>
+          <li><strong>Stripe</strong> — payment processing</li>
+        </ul>
+        <p>Some of these providers are based outside the UK/EEA. Where data is transferred internationally, we ensure appropriate safeguards are in place (such as Standard Contractual Clauses or UK adequacy decisions).</p>
+        <p>We may also disclose data where required by law, or to protect the rights and safety of Phone Phoebe, our customers, or others.</p>
+
+        <hr class="rule" />
+
+        <h2>5. How long we keep your data</h2>
+        <ul>
+          <li><strong>Account data:</strong> retained for the duration of your subscription and for up to 12 months after cancellation, unless you request earlier deletion.</li>
+          <li><strong>Call recordings and transcripts:</strong> retained for 90 days by default, then deleted. You can request earlier deletion at any time.</li>
+          <li><strong>Payment records:</strong> retained for 7 years in line with UK financial record-keeping requirements.</li>
+        </ul>
+
+        <hr class="rule" />
+
+        <h2>6. Your rights under UK GDPR</h2>
+        <p>You have the following rights regarding your personal data:</p>
+        <ul>
+          <li><strong>Right of access</strong> — you can request a copy of the personal data we hold about you.</li>
+          <li><strong>Right to rectification</strong> — you can ask us to correct inaccurate data.</li>
+          <li><strong>Right to erasure</strong> — you can request that we delete your data (subject to legal obligations).</li>
+          <li><strong>Right to restrict processing</strong> — you can ask us to limit how we use your data in certain circumstances.</li>
+          <li><strong>Right to data portability</strong> — you can request your data in a common machine-readable format.</li>
+          <li><strong>Right to object</strong> — you can object to processing based on legitimate interests.</li>
+        </ul>
+        <p>To exercise any of these rights, email us at <a href="mailto:corkhill17@gmail.com">corkhill17@gmail.com</a>. We will respond within one calendar month.</p>
+        <p>If you are unhappy with how we handle your data, you have the right to complain to the <strong>Information Commissioner's Office (ICO)</strong> at <a href="https://ico.org.uk" rel="noopener">ico.org.uk</a>.</p>
+
+        <hr class="rule" />
+
+        <h2>7. Cookies</h2>
+        <p>We use a small number of cookies to make the website work correctly (for example, to keep you logged in). We do not currently use advertising or tracking cookies. If this changes, we will update this policy and ask for your consent where required.</p>
+
+        <hr class="rule" />
+
+        <h2>8. Security</h2>
+        <p>We take the security of your data seriously. We use industry-standard measures including encrypted data storage, HTTPS for all web traffic, and strict access controls. However, no system is completely immune to risk, and we cannot guarantee absolute security.</p>
+        <p>If we ever become aware of a data breach that affects your personal data, we will notify you and the ICO as required by law.</p>
+
+        <hr class="rule" />
+
+        <h2>9. Changes to this policy</h2>
+        <p>We may update this privacy policy from time to time. When we make material changes, we'll let you know by email or by posting a notice in the dashboard. The date at the top of this page shows when it was last updated.</p>
+
+        <hr class="rule" />
+
+        <h2>10. Contact</h2>
+        <p>Questions about this policy or how we handle your data? Get in touch:</p>
+        <p><strong>Phone Phoebe</strong><br />Email: <a href="mailto:corkhill17@gmail.com">corkhill17@gmail.com</a><br />United Kingdom</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="brand brand--footer"><img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="brand__logo brand__logo--footer" /></a>
+        <p class="footer__tag">The AI receptionist for UK small businesses.</p>
+      </div>
+      <div class="footer__col"><h4>Product</h4><a href="index.html#how">How it works</a><a href="index.html#why">Why Phoebe</a><a href="index.html#pricing">Pricing</a></div>
+      <div class="footer__col"><h4>Company</h4><a href="about.html">About</a><a href="mailto:corkhill17@gmail.com">Contact</a><a href="#">Blog</a></div>
+      <div class="footer__col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+    <div class="container footer__bar">
+      <span>© <span id="year"></span> Phone Phoebe. All rights reserved.</span>
+      <span>Made in the UK 🇬🇧</span>
+    </div>
+  </footer>
+
+  <!-- AUTH MODAL -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Close">✕</button>
+      <img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="modal__logo" />
+      <div class="modal__tabs" id="modalTabs" role="tablist">
+        <button class="modal__tab active" data-tab="login" role="tab">Log in</button>
+        <button class="modal__tab" data-tab="signup" role="tab">Create account</button>
+      </div>
+      <div class="modal__plan-badge" id="modalPlanBadge" style="display:none">
+        <span>📋</span> <span id="modalPlanLabel"></span> plan selected
+      </div>
+      <div class="modal__error" id="modalError" role="alert"></div>
+      <div id="panelLogin">
+        <h2 id="modalTitle">Welcome back</h2>
+        <p class="modal__sub">Sign in to your Phone Phoebe account.</p>
+        <form id="formLogin" novalidate>
+          <div class="form-group"><label for="loginEmail">Email address</label><input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required /></div>
+          <div class="form-group"><label for="loginPassword">Password</label><input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required /></div>
+          <div class="modal__forgot"><a id="forgotLink">Forgot password?</a></div>
+          <button type="submit" class="modal__submit" id="loginBtn">Sign in</button>
+        </form>
+        <p class="modal__switch">No account? <a id="switchToSignup">Create one free</a></p>
+      </div>
+      <div id="panelSignup" style="display:none">
+        <h2>Start your free trial</h2>
+        <p class="modal__sub">7 days free — no card required. Set up takes 60 seconds.</p>
+        <form id="formSignup" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label for="signupName">Your name</label><input type="text" id="signupName" placeholder="Jane Smith" autocomplete="name" required /></div>
+            <div class="form-group"><label for="signupBusiness">Business name</label><input type="text" id="signupBusiness" placeholder="Smith Plumbing" required /></div>
+          </div>
+          <div class="form-group"><label for="signupEmail">Email address</label><input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email" required /></div>
+          <div class="form-group"><label for="signupPassword">Password</label><input type="password" id="signupPassword" placeholder="Min 8 characters" autocomplete="new-password" required minlength="8" /></div>
+          <input type="hidden" id="signupPlan" value="" />
+          <button type="submit" class="modal__submit" id="signupBtn">Create free account</button>
+        </form>
+        <p class="modal__switch">Already have an account? <a id="switchToLogin">Sign in</a></p>
+      </div>
+      <div id="panelSuccess" style="display:none" class="modal__success">
+        <span class="success-ico">🎉</span>
+        <h3>You're in! Check your email</h3>
+        <p>We've sent a confirmation link to your inbox. Click it and Phoebe will be ready to answer your first call.</p>
+      </div>
+      <div id="panelReset" style="display:none">
+        <h2>Reset password</h2>
+        <p class="modal__sub">Enter your email and we'll send a reset link.</p>
+        <form id="formReset" novalidate>
+          <div class="form-group"><label for="resetEmail">Email address</label><input type="email" id="resetEmail" placeholder="you@example.com" autocomplete="email" required /></div>
+          <button type="submit" class="modal__submit" id="resetBtn">Send reset link</button>
+        </form>
+        <p class="modal__switch"><a id="backToLogin">← Back to login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>
