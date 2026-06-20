@@ -297,6 +297,11 @@
   }
 
   // Plan select buttons
+  var stripeLinks = {
+    basic:        'https://buy.stripe.com/8x2aEY9aG7xV3ZYfGb1ck00',
+    professional: 'https://buy.stripe.com/7sY8wQcmSdWj9ki79F1ck01',
+    premium:      'https://buy.stripe.com/8x2aEYdqWg4reECctZ1ck02'
+  };
   document.querySelectorAll('[data-plan]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var plan = btn.getAttribute('data-plan');
@@ -304,7 +309,8 @@
         'Switch to ' + capitalise(plan) + ' plan?',
         'Stripe checkout will open — you\'ll only be charged after your trial ends.',
         function () {
-          alert('Stripe checkout for ' + plan + ' coming soon! We\'ll email you when billing is live.');
+          var url = stripeLinks[plan];
+          if (url) { window.location.href = url; }
         }
       );
     });
