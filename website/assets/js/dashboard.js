@@ -309,8 +309,11 @@
         'Switch to ' + capitalise(plan) + ' plan?',
         'Stripe checkout will open — you\'ll only be charged after your trial ends.',
         function () {
-          var url = stripeLinks[plan];
-          if (url) { window.location.href = url; }
+          var base = stripeLinks[plan];
+          if (!base) return;
+          // Pass the Supabase user ID so the webhook can activate the right account
+          var url = base + (base.includes('?') ? '&' : '?') + 'client_reference_id=' + encodeURIComponent(user.id);
+          window.location.href = url;
         }
       );
     });
