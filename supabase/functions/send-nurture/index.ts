@@ -8,7 +8,7 @@ const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')!
 const PHOEBE_NUMBER = '+44 7576 549490'
 const SUBSCRIBE_BASIC = 'https://buy.stripe.com/7sY8wQcmSdWj9ki79F1ck01'
 const SUBSCRIBE_PRO = 'https://buy.stripe.com/3csbJ2f9453H3ZYdRl1ck01'
-const FROM = 'Chris from Phone Phoebe <noreply@phonephoebe.co.uk>'
+const FROM = 'Chris from Phone Phoebe <onboarding@resend.dev>'
 
 // email number → hours after confirmed_at before it sends
 const SCHEDULE: { num: number; hours: number }[] = [
@@ -39,14 +39,14 @@ function shell(content: string): string {
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:32px 16px;">
 <tr><td>
 <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-<tr><td style="background:#0F1729;padding:24px 40px;">
-<span style="color:#fff;font-size:20px;font-weight:700;letter-spacing:-0.5px;">📞 Phone Phoebe</span>
+<tr><td style="background:#ffffff;padding:24px 40px;text-align:center;border-bottom:1px solid #e5e7eb;">
+<img src="https://lrxuflxfnyiqzjqzjcsa.supabase.co/storage/v1/object/public/assets/logo.jpeg" alt="Phone Phoebe" width="240" style="display:block;margin:0 auto;max-width:240px;" />
 </td></tr>
 <tr><td style="padding:36px 40px;color:#1a1a2e;font-size:16px;line-height:1.8;">
 ${content}
 </td></tr>
 <tr><td style="padding:20px 40px;background:#f9fafb;border-top:1px solid #e5e7eb;">
-<p style="margin:0;font-size:13px;color:#6b7280;">Phone Phoebe · <a href="https://phonephoebe.co.uk" style="color:#6366f1;text-decoration:none;">phonephoebe.co.uk</a></p>
+<p style="margin:0;font-size:13px;color:#6b7280;">Phone Phoebe · <a href="https://phonephoebe.co.uk" style="color:#5cb85c;text-decoration:none;">phonephoebe.co.uk</a></p>
 <p style="margin:6px 0 0;font-size:13px;color:#9ca3af;">Reply to this email to unsubscribe or ask anything.</p>
 </td></tr>
 </table>
@@ -115,14 +115,14 @@ function email5Html(n: string) {
 <p style="margin:0 0 16px;">Your free trial ends tomorrow.</p>
 <p style="margin:0 0 16px;">If Phoebe has been answering your calls — you already know whether she's worth £39/month.</p>
 <p style="margin:0 0 24px;">At £38 a job, she pays for herself the moment she books one call you would have missed.</p>
-<p style="margin:0 0 28px;"><a href="${SUBSCRIBE_BASIC}" style="display:inline-block;background:#6366f1;color:#fff;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;">Keep Phoebe — £39/month →</a></p>
+<p style="margin:0 0 28px;"><a href="${SUBSCRIBE_BASIC}" style="display:inline-block;background:#5cb85c;color:#fff;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;">Keep Phoebe — £39/month →</a></p>
 <p style="margin:0 0 16px;font-size:14px;color:#6b7280;">No contract. Cancel any time. Takes 30 seconds.</p>
 <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
 <p style="margin:0 0 16px;"><strong>If the trial didn't go to plan</strong> — I'd genuinely like to know why.</p>
 <p style="margin:0 0 24px;">Did she not get set up in time? Did something not work? Did it feel wrong for your business? Reply and tell me. I'll either fix it or learn from it.</p>
 <p style="margin:0 0 4px;">Either way — thank you for trying Phoebe.</p>
 <p style="margin:0 0 24px;">Chris</p>
-<p style="margin:0;font-size:14px;color:#6b7280;border-top:1px solid #e5e7eb;padding-top:16px;">P.S. If £39/month isn't right for you right now, the Professional plan at £89/month includes full calendar booking. If you're serious about never missing a booking again, that's the one. <a href="${SUBSCRIBE_PRO}" style="color:#6366f1;">See Professional →</a></p>`)
+<p style="margin:0;font-size:14px;color:#6b7280;border-top:1px solid #e5e7eb;padding-top:16px;">P.S. If £39/month isn't right for you right now, the Professional plan at £89/month includes full calendar booking. If you're serious about never missing a booking again, that's the one. <a href="${SUBSCRIBE_PRO}" style="color:#5cb85c;">See Professional →</a></p>`)
 }
 
 // ── Email 6 — Day 7 ────────────────────────────────────────────────────────
@@ -132,11 +132,11 @@ function email6Html(n: string) {
 <p style="margin:0 0 24px;">Today's the last day of your free trial.</p>
 <p style="margin:0 0 24px;">After midnight tonight, Phoebe will stop answering your calls.</p>
 <p style="margin:0 0 28px;">If you want to keep her:</p>
-<p style="margin:0 0 28px;"><a href="${SUBSCRIBE_BASIC}" style="display:inline-block;background:#6366f1;color:#fff;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;">Subscribe now — £39/month →</a></p>
-<div style="background:#f0f4ff;border-radius:8px;padding:20px 24px;margin:0 0 24px;">
+<p style="margin:0 0 28px;"><a href="${SUBSCRIBE_BASIC}" style="display:inline-block;background:#5cb85c;color:#fff;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;">Subscribe now — £39/month →</a></p>
+<div style="background:#eaf7ea;border-radius:8px;padding:20px 24px;margin:0 0 24px;">
 <p style="margin:0;font-size:15px;color:#374151;">The next call you miss while you're working is worth at least £38.<br/><strong>Phoebe costs £1.30 a day.</strong><br/><br/>The maths is easy. The decision is yours.</p>
 </div>
-<p style="margin:0 0 4px;">If you're not ready — no pressure. You can come back any time at <a href="https://phonephoebe.co.uk" style="color:#6366f1;">phonephoebe.co.uk</a>.</p>
+<p style="margin:0 0 4px;">If you're not ready — no pressure. You can come back any time at <a href="https://phonephoebe.co.uk" style="color:#5cb85c;">phonephoebe.co.uk</a>.</p>
 <p style="margin:0 0 24px;"><br/>Chris<br/>Phone Phoebe</p>`)
 }
 

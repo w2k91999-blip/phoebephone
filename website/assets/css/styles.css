@@ -74,10 +74,10 @@ img{max-width:100%}
 /* ---------- Nav ---------- */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
 .nav.scrolled{border-color:var(--line);box-shadow:0 6px 24px -18px rgba(31,38,86,.4)}
-.nav__inner{display:flex;align-items:center;justify-content:space-between;height:80px;gap:1.5rem}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;height:120px;gap:1.5rem}
 .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--display);font-weight:800;color:var(--ink);font-size:1.12rem}
-.brand__logo{height:52px;width:auto;display:block}
-.brand__logo--footer{filter:brightness(0) invert(1);height:44px}
+.brand__logo{width:280px;height:auto;display:block}
+.brand__logo--footer{height:76px;border-radius:10px;padding:4px 8px;background:rgba(255,255,255,0.08)}
 .brand__mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:800;box-shadow:0 8px 18px -8px rgba(60,160,80,.7)}
 .nav__links{display:flex;gap:1.6rem}
 .nav__links a{font-weight:500;font-size:.95rem;color:var(--body);transition:color .15s}
@@ -275,7 +275,7 @@ img{max-width:100%}
 }
 .modal__close:hover{color:var(--ink)}
 
-.modal__logo{height:40px;margin-bottom:20px;display:block}
+.modal__logo{height:76px;margin-bottom:20px;display:block}
 
 .modal__tabs{display:flex;gap:0;background:var(--bg-alt);border-radius:10px;padding:4px;margin-bottom:28px}
 .modal__tab{

@@ -21,7 +21,7 @@ button,input,select,textarea{font-family:var(--font);cursor:pointer}
 /* ── Sidebar ── */
 .adm-sidebar{width:210px;background:#0a1a0a;position:fixed;inset:0 auto 0 0;display:flex;flex-direction:column;z-index:100;transition:transform .25s ease}
 .adm-sidebar__brand{display:flex;align-items:center;gap:9px;padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.07)}
-.adm-sidebar__logo{height:34px;width:auto}
+.adm-sidebar__logo{height:64px;width:auto}
 .adm-badge{background:#ef4444;color:#fff;font-family:var(--display);font-weight:700;font-size:.66rem;padding:.18rem .5rem;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
 .adm-sidebar__nav{flex:1;padding:10px 0;display:flex;flex-direction:column;gap:2px}
 .asnav{display:flex;align-items:center;gap:9px;padding:9px 15px;color:#7a9a7a;font-size:.87rem;font-weight:600;font-family:var(--display);border-right:3px solid transparent;transition:.15s;cursor:pointer}
