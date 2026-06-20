@@ -4,10 +4,41 @@
       "Bash(pnpm --version)",
       "Bash(pnpm install *)",
       "Bash(SERVER_URL=https://example.ngrok.app node --input-type=module -e ' *)",
-      "Bash(PORT=3999 node --input-type=module -e ' *)"
+      "Bash(PORT=3999 node --input-type=module -e ' *)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(pnpm provision *)",
+      "Bash(curl -s http://localhost:3001/health)",
+      "Bash(curl -s https://stegosaur-stays-moonlike.ngrok-free.dev/health)",
+      "Bash(pnpm add *)",
+      "Bash(rm -rf node_modules && pnpm install 2>&1 | tail -20)",
+      "Bash(node -e \"require.resolve\\('@swc/helpers/_/_interop_require_default', {paths:['node_modules/.pnpm/next@16.2.9_@babel+core@7.2_ff5cf81a912fbaa1808ad69d3fec28b2/node_modules/next']}\\); console.log\\('RESOLVES OK'\\)\")",
+      "PowerShell(pnpm --dir \"c:\\\\Users\\\\MM\\\\Desktop\\\\Ai-Phone-Scheduler\\\\blogwebsite\" build 2>&1)",
+      "PowerShell(pnpm --dir \"c:\\\\Users\\\\MM\\\\Desktop\\\\Ai-Phone-Scheduler\\\\blogwebsite\" add -D vitest)",
+      "PowerShell(pnpm --dir \"c:\\\\Users\\\\MM\\\\Desktop\\\\Ai-Phone-Scheduler\\\\blogwebsite\" test 2>&1)",
+      "PowerShell(pnpm --dir \"c:\\\\Users\\\\MM\\\\Desktop\\\\Ai-Phone-Scheduler\\\\blogwebsite\" dev)",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__list_console_messages",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__navigate_page",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_snapshot",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__click",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__evaluate_script",
+      "Bash(pnpm build *)",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__fill",
+      "Bash(git fetch *)",
+      "Bash(git ls-tree *)",
+      "Bash(git checkout *)",
+      "Bash(supabase --version)",
+      "PowerShell(npm install -g supabase 2>&1)",
+      "PowerShell(supabase --version 2>&1)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git merge *)"
     ],
     "additionalDirectories": [
-      "c:\\Users\\MM\\.claude\\projects\\c--Users-MM-Desktop-Ai-Phone-Scheduler\\memory"
+      "c:\\Users\\MM\\.claude\\projects\\c--Users-MM-Desktop-Ai-Phone-Scheduler\\memory",
+      "C:\\Users\\MM\\Desktop\\Ai-Phone-Scheduler\\blogwebsite\\node_modules"
     ]
   }
 }

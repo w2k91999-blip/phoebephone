@@ -1,35 +1,45 @@
 {
   "id": "smith-driving-school",
   "businessName": "Smith Driving School",
-  "agentName": "Olivia",
+  "agentName": "Phoebe",
   "timezone": "Europe/London",
-
   "voice": {
     "provider": "11labs",
-    "voiceId": "REPLACE_WITH_ELEVENLABS_VOICE_ID"
+    "voiceId": "pFZP5JQG7iQjIQuC4Bku"
   },
-
   "calcom": {
     "apiKey": "",
-    "eventTypeId": 0,
+    "eventTypeId": 5999858,
     "lengthMinutes": 60
   },
-
   "businessInfo": {
     "services": "Manual and automatic driving lessons, Pass Plus, and intensive courses",
-    "areas": "Manchester, Salford, and Stockport",
+    "areas": "North Liverpool, South Liverpool, Wirral, and surrounding areas",
     "hourlyRate": "38 pounds per hour, or 350 pounds for a 10-hour block",
+    "avalibility": "Fully avaible. i can book in anytime",
     "hours": "Monday to Saturday, 8am to 7pm"
+    
   },
-
   "faq": [
-    { "q": "Do you teach automatic?", "a": "Yes, we teach both manual and automatic." },
-    { "q": "Do you do intensive courses?", "a": "Yes, we offer intensive and semi-intensive courses, ask the instructor for current availability." },
-    { "q": "Can I use my own car?", "a": "Lessons are in the instructor's dual-control car." }
+    {
+      "q": "Do you teach automatic?",
+      "a": "Yes, we teach both manual and automatic."
+    },
+    {
+      "q": "Do you do intensive courses?",
+      "a": "Yes, we offer intensive and semi-intensive courses, ask the instructor for current availability."
+    },
+    {
+      "q": "What areas do you cover?",
+      "a": "We cover North Liverpool, South Liverpool, Wirral, and surrounding areas."
+    },
+    {
+      "q": "Can I use my own car?",
+      "a": "Lessons are in the instructor's dual-control car."
+    }
   ],
-
   "_vapi": {
-    "assistantId": null,
+    "assistantId": "85580a7c-27ca-4495-8f91-a36bc87a1487",
     "phoneNumberId": null
   }
 }
