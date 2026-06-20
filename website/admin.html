@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Phone Phoebe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body class="admin-body">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="adm-sidebar" id="admSidebar">
+    <div class="adm-sidebar__brand">
+      <img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="adm-sidebar__logo" />
+      <span class="adm-badge">Admin</span>
+    </div>
+    <nav class="adm-sidebar__nav">
+      <a class="asnav active" data-section="overview"><i>📊</i> Overview</a>
+      <a class="asnav"        data-section="users">   <i>👥</i> Users</a>
+      <a class="asnav"        data-section="subs">    <i>💳</i> Subscriptions</a>
+    </nav>
+    <div class="adm-sidebar__footer">
+      <a href="dashboard.html" class="adm-sidebar__back">← My account</a>
+      <button class="adm-logout" id="admLogout">Log out</button>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="adm-main">
+    <header class="adm-topbar">
+      <button class="adm-burger" id="admBurger">☰</button>
+      <span class="adm-topbar__title" id="admTitle">Overview</span>
+      <div class="adm-topbar__right">
+        <span class="adm-tag">🛡️ Admin</span>
+      </div>
+    </header>
+
+    <div class="adm-guard" id="admGuard"><div class="spinner"></div></div>
+
+    <!-- ============================================================
+         OVERVIEW
+    ============================================================ -->
+    <section class="asec" id="secOverview">
+      <div class="adm-stat-row">
+        <div class="adm-stat"><div class="adm-stat__n" id="asTotalUsers">—</div><div class="adm-stat__l">Total users</div></div>
+        <div class="adm-stat"><div class="adm-stat__n" id="asTrialUsers">—</div><div class="adm-stat__l">On trial</div></div>
+        <div class="adm-stat"><div class="adm-stat__n" id="asPaidUsers">—</div><div class="adm-stat__l">Paid</div></div>
+        <div class="adm-stat"><div class="adm-stat__n" id="asTotalCalls">—</div><div class="adm-stat__l">Total calls</div></div>
+        <div class="adm-stat"><div class="adm-stat__n" id="asTotalBooks">—</div><div class="adm-stat__l">Total bookings</div></div>
+      </div>
+
+      <div class="adm-plan-breakdown">
+        <div class="adm-plan-tile"><div class="adm-plan-tile__n" id="asPlanBasic">—</div><div class="adm-plan-tile__l">Basic</div></div>
+        <div class="adm-plan-tile"><div class="adm-plan-tile__n" id="asPlanPro">—</div><div class="adm-plan-tile__l">Professional</div></div>
+        <div class="adm-plan-tile"><div class="adm-plan-tile__n" id="asPlanPremium">—</div><div class="adm-plan-tile__l">Premium</div></div>
+      </div>
+
+      <div class="adm-card">
+        <div class="adm-card__head"><h3>Recent sign-ups</h3><button class="adm-btn-sm" data-section="users">View all →</button></div>
+        <div class="empty-state" id="recentEmpty"><span>👥</span><p>No users yet.</p></div>
+        <table class="adm-table" id="recentTable" style="display:none">
+          <thead><tr><th>Name</th><th>Email</th><th>Plan</th><th>Joined</th><th></th></tr></thead>
+          <tbody id="recentBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         USERS — split panel
+    ============================================================ -->
+    <section class="asec asec--split" id="secUsers">
+
+      <!-- Left: list -->
+      <div class="user-list-panel">
+        <div class="user-list-panel__head">
+          <input class="adm-search" type="search" placeholder="Search…" id="userSearch" />
+          <div class="user-filter-row">
+            <select class="adm-select-sm" id="planFilter">
+              <option value="">All plans</option>
+              <option value="trial">Trial</option>
+              <option value="basic">Basic</option>
+              <option value="professional">Professional</option>
+              <option value="premium">Premium</option>
+            </select>
+            <span class="user-count" id="userCount">0 users</span>
+          </div>
+        </div>
+        <div class="user-list" id="userList">
+          <div class="empty-state"><span>👥</span><p>Loading…</p></div>
+        </div>
+      </div>
+
+      <!-- Right: detail panel -->
+      <div class="user-detail-panel" id="userDetailPanel">
+        <div class="udp-empty" id="udpEmpty">
+          <span>👆</span>
+          <p>Select a user to view their account details.</p>
+        </div>
+
+        <!-- Detail content (hidden until user selected) -->
+        <div class="udp-content" id="udpContent" style="display:none">
+
+          <!-- Header -->
+          <div class="udp-header">
+            <div class="udp-header__left">
+              <div class="udp-avatar" id="udpAvatar">?</div>
+              <div>
+                <div class="udp-name" id="udpName">—</div>
+                <div class="udp-email" id="udpEmail">—</div>
+                <div class="udp-meta" id="udpMeta">—</div>
+              </div>
+            </div>
+            <div class="udp-header__right" id="udpHeaderRight"></div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="udp-tabs" id="udpTabs">
+            <button class="utab active" data-tab="profile">Profile</button>
+            <button class="utab" data-tab="agent">Agent</button>
+            <button class="utab" data-tab="calls">Calls</button>
+            <button class="utab" data-tab="bookings">Bookings</button>
+            <button class="utab" data-tab="billing">Billing</button>
+            <button class="utab" data-tab="actions">Actions</button>
+          </div>
+
+          <!-- ── PROFILE TAB ── -->
+          <div class="utab-panel active" id="tabProfile">
+            <div class="udp-form" id="profileEditForm">
+              <div class="udp-form-row">
+                <div class="ufgrp"><label>Full name</label><input type="text" id="ufName" /></div>
+                <div class="ufgrp"><label>Business name</label><input type="text" id="ufBiz" /></div>
+              </div>
+              <div class="udp-form-row">
+                <div class="ufgrp"><label>Phone</label><input type="tel" id="ufPhone" /></div>
+                <div class="ufgrp"><label>Plan</label>
+                  <select id="ufPlan">
+                    <option value="trial">Trial</option>
+                    <option value="basic">Basic</option>
+                    <option value="professional">Professional</option>
+                    <option value="premium">Premium</option>
+                  </select>
+                </div>
+              </div>
+              <div class="ufgrp"><label>Email (read-only — managed by Supabase Auth)</label><input type="email" id="ufEmail" disabled /></div>
+              <div class="udp-form-actions">
+                <button class="adm-btn-primary" id="saveProfileBtn">Save profile</button>
+                <div class="udp-ok" id="profileOk" style="display:none">✅ Saved</div>
+              </div>
+            </div>
+
+            <div class="udp-info-grid" id="udpInfoGrid">
+              <div class="udp-info-tile"><span>Joined</span><strong id="uiJoined">—</strong></div>
+              <div class="udp-info-tile"><span>Trial ends</span><strong id="uiTrial">—</strong></div>
+              <div class="udp-info-tile"><span>Onboarded</span><strong id="uiOnboard">—</strong></div>
+              <div class="udp-info-tile"><span>Admin</span><strong id="uiAdmin">—</strong></div>
+            </div>
+          </div>
+
+          <!-- ── AGENT TAB ── -->
+          <div class="utab-panel" id="tabAgent">
+            <div class="empty-state" id="agentEmpty"><span>🤖</span><p>This user has not configured their agent yet.</p></div>
+            <div id="agentDetail" style="display:none">
+              <div class="agent-detail-grid" id="agentDetailGrid"></div>
+              <div class="udp-subsection">
+                <h4>FAQ</h4>
+                <div id="agentFaqList" class="agent-faq-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── CALLS TAB ── -->
+          <div class="utab-panel" id="tabCalls">
+            <div class="empty-state" id="callsEmpty"><span>📵</span><p>No calls recorded yet.</p></div>
+            <table class="adm-table" id="callsTable" style="display:none">
+              <thead><tr><th>Date</th><th>Caller</th><th>Duration</th><th>Status</th><th>Summary</th></tr></thead>
+              <tbody id="callsBody"></tbody>
+            </table>
+          </div>
+
+          <!-- ── BOOKINGS TAB ── -->
+          <div class="utab-panel" id="tabBookings">
+            <div class="empty-state" id="bookingsEmpty"><span>📅</span><p>No bookings yet.</p></div>
+            <table class="adm-table" id="bookingsTable" style="display:none">
+              <thead><tr><th>Scheduled</th><th>Customer</th><th>Phone</th><th>Service</th><th>Status</th></tr></thead>
+              <tbody id="bookingsBody"></tbody>
+            </table>
+          </div>
+
+          <!-- ── BILLING TAB ── -->
+          <div class="utab-panel" id="tabBilling">
+            <div class="billing-plan-row">
+              <div class="ufgrp" style="flex:1">
+                <label>Change plan</label>
+                <select id="billingPlanSelect">
+                  <option value="trial">Trial</option>
+                  <option value="basic">Basic — £39/mo</option>
+                  <option value="professional">Professional — £89/mo</option>
+                  <option value="premium">Premium — £189/mo</option>
+                </select>
+              </div>
+              <button class="adm-btn-primary" id="saveBillingPlan" style="align-self:flex-end">Update plan</button>
+              <div class="udp-ok" id="billingOk" style="display:none;align-self:flex-end">✅ Updated</div>
+            </div>
+            <h4 style="margin:18px 0 10px;font-size:.9rem">Payment history</h4>
+            <div class="empty-state" id="paymentsEmpty"><span>💳</span><p>No payments yet.</p></div>
+            <table class="adm-table" id="paymentsTable" style="display:none">
+              <thead><tr><th>Date</th><th>Plan</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody id="paymentsBody"></tbody>
+            </table>
+          </div>
+
+          <!-- ── ACTIONS TAB ── -->
+          <div class="utab-panel" id="tabActions">
+            <div class="action-card">
+              <div class="action-card__head">
+                <h4>Admin access</h4>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="adminToggle" />
+                  <span class="toggle-switch__track"></span>
+                </label>
+              </div>
+              <p>Grant this user access to the admin dashboard.</p>
+              <button class="adm-btn-outline" id="saveAdminBtn">Update admin status</button>
+              <div class="udp-ok" id="adminOk" style="display:none">✅ Updated</div>
+            </div>
+
+            <div class="action-card action-card--danger">
+              <div class="action-card__head"><h4>⚠️ Delete account</h4></div>
+              <p>Permanently deletes the user's account, profile, agent config, calls and bookings. This cannot be undone.</p>
+              <button class="adm-btn-danger" id="deleteUserBtn">Delete this account</button>
+            </div>
+          </div>
+
+        </div><!-- /udp-content -->
+      </div><!-- /user-detail-panel -->
+    </section>
+
+    <!-- ============================================================
+         SUBSCRIPTIONS
+    ============================================================ -->
+    <section class="asec" id="secSubs">
+      <div class="adm-card">
+        <div class="adm-card__head"><h3>All subscriptions</h3></div>
+        <div class="empty-state" id="subsEmpty"><span>💳</span><p>No subscriptions yet.</p></div>
+        <table class="adm-table" id="subsTable" style="display:none">
+          <thead><tr><th>User</th><th>Plan</th><th>Status</th><th>Period ends</th><th>Cancels at end</th><th>Stripe ID</th></tr></thead>
+          <tbody id="subsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONFIRM MODAL -->
+  <div class="adm-confirm-overlay" id="admConfirmOverlay">
+    <div class="adm-confirm">
+      <h3 id="admConfirmTitle">Are you sure?</h3>
+      <p  id="admConfirmBody"></p>
+      <div class="adm-confirm__actions">
+        <button class="adm-btn-outline" id="admConfirmNo">Cancel</button>
+        <button class="adm-btn-danger"  id="admConfirmYes">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

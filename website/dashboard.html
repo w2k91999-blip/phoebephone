@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Phone Phoebe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body class="dash-body">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <a href="index.html" class="sidebar__logo-link">
+        <img src="assets/images/Logo.jpeg" alt="Phone Phoebe" class="sidebar__logo" />
+      </a>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a class="snav active" data-section="home">    <i>🏠</i> Home</a>
+      <a class="snav"        data-section="calls">   <i>📞</i> Call logs</a>
+      <a class="snav"        data-section="bookings"><i>📅</i> Bookings</a>
+      <a class="snav"        data-section="agent">   <i>🤖</i> My agent</a>
+      <a class="snav"        data-section="sub">     <i>💳</i> Subscription</a>
+      <a class="snav"        data-section="account"> <i>⚙️</i> Account</a>
+    </nav>
+
+    <div class="sidebar__bottom">
+      <div class="sidebar__user" id="sidebarUser">
+        <div class="s-avatar" id="sidebarAvatar">?</div>
+        <div>
+          <div class="s-name" id="sidebarName">Loading…</div>
+          <div class="s-plan" id="sidebarPlan">—</div>
+        </div>
+      </div>
+      <button class="s-logout" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="dash-main" id="dashMain">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="topbar__burger" id="burgerBtn">☰</button>
+      <span class="topbar__title" id="topbarTitle">Home</span>
+      <div class="topbar__right" id="topbarRight"></div>
+    </header>
+
+    <!-- Auth loading screen -->
+    <div class="dash-guard" id="dashGuard">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- ======================================================
+         HOME
+    ====================================================== -->
+    <section class="dsec" id="secHome">
+
+      <!-- Trial / plan banner -->
+      <div class="plan-banner" id="planBanner" style="display:none">
+        <div class="plan-banner__left">
+          <span class="plan-banner__ico">⏳</span>
+          <div>
+            <strong id="planBannerTitle">Your free trial</strong>
+            <span id="planBannerSub">Upgrade to keep Phoebe answering after your trial ends.</span>
+          </div>
+        </div>
+        <div class="plan-banner__right">
+          <button class="btn-white" data-section="sub">Upgrade plan</button>
+          <button class="plan-banner__x" id="dismissBanner">✕</button>
+        </div>
+      </div>
+
+      <!-- Setup checklist -->
+      <div class="setup-card" id="setupCard" style="display:none">
+        <div class="setup-card__head">
+          <div>
+            <h3>Get Phoebe ready</h3>
+            <p>Complete these steps to start taking calls.</p>
+          </div>
+          <div class="setup-progress">
+            <div class="setup-progress__bar"><div class="setup-progress__fill" id="setupFill"></div></div>
+            <span id="setupPct">0%</span>
+          </div>
+        </div>
+        <div class="setup-steps" id="setupSteps">
+          <div class="sstep done" data-key="account">
+            <div class="sstep__ico">✅</div>
+            <div class="sstep__text"><strong>Create account</strong><span>Done</span></div>
+          </div>
+          <div class="sstep" id="sstepAgent" data-key="agent">
+            <div class="sstep__ico">2</div>
+            <div class="sstep__text"><strong>Configure Phoebe</strong><span>Tell her about your business</span></div>
+            <button class="btn-outline-sm" data-section="agent">Set up →</button>
+          </div>
+          <div class="sstep" id="sstepForward" data-key="forward">
+            <div class="sstep__ico">3</div>
+            <div class="sstep__text"><strong>Forward your calls</strong><span>Point your number at Phoebe</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-card__ico" style="background:#eaf7ea">📞</div>
+          <div>
+            <div class="stat-card__n" id="hStatCalls">—</div>
+            <div class="stat-card__l">Calls this month</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__ico" style="background:#eff6ff">📅</div>
+          <div>
+            <div class="stat-card__n" id="hStatBooks">—</div>
+            <div class="stat-card__l">Bookings this month</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__ico" style="background:#fdf4ff">⏱️</div>
+          <div>
+            <div class="stat-card__n" id="hStatMins">—</div>
+            <div class="stat-card__l">Minutes handled</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__ico" style="background:#fff7ed">🎯</div>
+          <div>
+            <div class="stat-card__n" id="hStatRate">—</div>
+            <div class="stat-card__l">Booking rate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home grid -->
+      <div class="home-grid">
+        <!-- Recent calls -->
+        <div class="dcard home-grid__main">
+          <div class="dcard__head">
+            <h3>Recent calls</h3>
+            <a class="dlink" data-section="calls">View all →</a>
+          </div>
+          <div class="empty-state" id="hCallsEmpty">
+            <span>📵</span>
+            <p>No calls yet. Once you forward your number to Phoebe she'll start logging calls here.</p>
+          </div>
+          <table class="dtable" id="hCallsTable" style="display:none">
+            <thead><tr><th>Time</th><th>Caller</th><th>Duration</th><th>Outcome</th></tr></thead>
+            <tbody id="hCallsBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Right column -->
+        <div class="home-grid__side">
+          <!-- Agent status -->
+          <div class="dcard agent-status-card">
+            <div class="agent-status-card__head">
+              <div>
+                <div class="agent-status-card__name" id="agentStatusName">Phoebe</div>
+                <div class="agent-status-badge" id="agentStatusBadge"><span class="dot dot--grey"></span> Not configured</div>
+              </div>
+              <button class="btn-outline-sm" data-section="agent">Configure</button>
+            </div>
+            <div class="agent-status-card__detail" id="agentStatusDetail">
+              <div class="ags-row"><span>Business</span><strong id="asdBiz">—</strong></div>
+              <div class="ags-row"><span>Hours</span><strong id="asdHours">—</strong></div>
+              <div class="ags-row"><span>Plan</span><strong id="asdPlan">—</strong></div>
+            </div>
+          </div>
+
+          <!-- Next booking -->
+          <div class="dcard next-booking-card" id="nextBookingCard" style="display:none">
+            <div class="dcard__head"><h4>Next booking</h4></div>
+            <div class="next-booking__info">
+              <div class="next-booking__date" id="nbDate">—</div>
+              <div class="next-booking__name" id="nbName">—</div>
+              <div class="next-booking__service" id="nbService">—</div>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div class="dcard quick-links">
+            <div class="dcard__head"><h4>Quick actions</h4></div>
+            <button class="qlink" data-section="agent">✏️ Edit agent details</button>
+            <button class="qlink" data-section="calls">📋 View call transcripts</button>
+            <button class="qlink" data-section="sub">💳 Manage subscription</button>
+            <a href="mailto:support@phonephoebe.co.uk" class="qlink">💬 Contact support</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CALLS
+    ====================================================== -->
+    <section class="dsec" id="secCalls">
+      <div class="dcard">
+        <div class="dcard__head">
+          <h3>Call logs</h3>
+          <div style="display:flex;gap:8px;align-items:center">
+            <input class="dinput-sm" type="search" placeholder="Search caller…" id="callSearch" />
+          </div>
+        </div>
+        <div class="empty-state" id="callsEmpty"><span>📵</span><p>No calls recorded yet.</p></div>
+        <table class="dtable" id="callsTable" style="display:none">
+          <thead><tr><th>Date &amp; time</th><th>Caller</th><th>Duration</th><th>Status</th><th>Summary</th></tr></thead>
+          <tbody id="callsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         BOOKINGS
+    ====================================================== -->
+    <section class="dsec" id="secBookings">
+      <div class="dcard">
+        <div class="dcard__head">
+          <h3>Bookings</h3>
+          <select class="dselect" id="bookingFilter">
+            <option value="upcoming">Upcoming</option>
+            <option value="all">All time</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <div class="empty-state" id="bookingsEmpty"><span>📅</span><p>No bookings yet.</p></div>
+        <table class="dtable" id="bookingsTable" style="display:none">
+          <thead><tr><th>Scheduled</th><th>Customer</th><th>Phone</th><th>Service</th><th>Status</th></tr></thead>
+          <tbody id="bookingsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         AGENT
+    ====================================================== -->
+    <section class="dsec" id="secAgent">
+      <div class="dcard">
+        <div class="dcard__head">
+          <h3>Agent configuration</h3>
+          <button class="btn-primary" id="saveAgentBtn">Save changes</button>
+        </div>
+        <div class="save-ok" id="agentOk" style="display:none">✅ Saved</div>
+        <form id="agentForm" class="aform" novalidate>
+          <div class="aform__section">
+            <h4>Business details</h4>
+            <div class="aform__row">
+              <div class="fgrp"><label>Business name</label><input id="aBizName" type="text" placeholder="Smith Plumbing" /></div>
+              <div class="fgrp"><label>Agent name</label><input id="aAgentName" type="text" placeholder="Phoebe" /></div>
+            </div>
+            <div class="aform__row">
+              <div class="fgrp"><label>Business hours</label><input id="aHours" type="text" placeholder="Mon–Sat 8am–7pm" /></div>
+              <div class="fgrp"><label>Areas covered</label><input id="aAreas" type="text" placeholder="North Liverpool, Wirral…" /></div>
+            </div>
+            <div class="fgrp"><label>Services offered</label><textarea id="aServices" rows="3" placeholder="Manual &amp; automatic driving lessons…"></textarea></div>
+            <div class="aform__row">
+              <div class="fgrp"><label>Pricing / rates</label><input id="aRate" type="text" placeholder="£38/hr or £350 for 10-hr block" /></div>
+              <div class="fgrp"><label>Availability note</label><input id="aAvail" type="text" placeholder="Fully available, can book any time" /></div>
+            </div>
+            <div class="fgrp"><label>Your mobile (call transfer number)</label><input id="aForward" type="tel" placeholder="+44 7700 900123" /></div>
+          </div>
+
+          <div class="aform__section">
+            <h4>Integrations</h4>
+            <div class="aform__row">
+              <div class="fgrp"><label>Cal.com API key</label><input id="aCalKey" type="text" placeholder="cal_live_…" /></div>
+              <div class="fgrp"><label>Cal.com event type ID</label><input id="aCalEvent" type="number" placeholder="5999858" /></div>
+            </div>
+            <div class="fgrp"><label>ElevenLabs voice ID</label><input id="aVoiceId" type="text" placeholder="m8PfgWULna67DKNOKhKR" /></div>
+          </div>
+
+          <div class="aform__section">
+            <div class="aform__section-head">
+              <h4>FAQ — what Phoebe knows</h4>
+              <button type="button" class="btn-outline-sm" id="addFaqBtn">+ Add</button>
+            </div>
+            <div id="faqList"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SUBSCRIPTION
+    ====================================================== -->
+    <section class="dsec" id="secSub">
+
+      <!-- Current plan -->
+      <div class="cur-plan-card" id="curPlanCard">
+        <div class="cur-plan-card__left">
+          <div class="cur-plan-card__label">Current plan</div>
+          <div class="cur-plan-card__name" id="cpName">—</div>
+          <div class="cur-plan-card__status" id="cpStatus">—</div>
+          <div class="cur-plan-card__renew" id="cpRenew" style="display:none"></div>
+        </div>
+        <div class="cur-plan-card__right" id="cpRight"></div>
+      </div>
+
+      <!-- Plan cards -->
+      <h3 class="sub-heading">Choose or change plan</h3>
+      <div class="plan-cards">
+        <div class="plan-card" id="pcBasic">
+          <div class="plan-card__name">Basic</div>
+          <div class="plan-card__price">£39<span>/mo</span></div>
+          <ul>
+            <li>Unlimited minutes</li><li>AI phone answering</li>
+            <li>Email &amp; text notifications</li><li>Smart questions</li>
+            <li>AI trained on your business</li>
+          </ul>
+          <button class="btn-outline" data-plan="basic" id="pcBasicBtn">Select Basic</button>
+        </div>
+        <div class="plan-card plan-card--featured" id="pcPro">
+          <div class="plan-card__badge">Most popular</div>
+          <div class="plan-card__name">Professional</div>
+          <div class="plan-card__price">£89<span>/mo</span></div>
+          <ul>
+            <li>Everything in Basic</li><li>Calendar bookings</li>
+            <li>Call transfers</li><li>Team members</li><li>Zapier integrations</li>
+          </ul>
+          <button class="btn-primary" data-plan="professional" id="pcProBtn">Select Professional</button>
+        </div>
+        <div class="plan-card" id="pcPremium">
+          <div class="plan-card__name">Premium</div>
+          <div class="plan-card__price">£189<span>/mo</span></div>
+          <ul>
+            <li>Everything in Professional</li><li>Priority support</li>
+            <li>Dedicated onboarding</li>
+          </ul>
+          <button class="btn-outline" data-plan="premium" id="pcPremiumBtn">Select Premium</button>
+        </div>
+      </div>
+
+      <!-- Billing history -->
+      <div class="dcard">
+        <div class="dcard__head"><h3>Payment history</h3></div>
+        <div class="empty-state" id="paymentsEmpty"><span>💳</span><p>No payments yet — you're on your free trial.</p></div>
+        <table class="dtable" id="paymentsTable" style="display:none">
+          <thead><tr><th>Date</th><th>Plan</th><th>Amount</th><th>Status</th><th>Invoice</th></tr></thead>
+          <tbody id="paymentsBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Cancel zone -->
+      <div class="danger-zone" id="cancelZone" style="display:none">
+        <div class="danger-zone__head">
+          <h4>⚠️ Cancel subscription</h4>
+          <button class="danger-zone__toggle" id="cancelToggle">Show</button>
+        </div>
+        <div class="danger-zone__body" id="cancelBody" style="display:none">
+          <p>Your access continues until the end of the current billing period. You can re-subscribe at any time.</p>
+          <button class="btn-danger" id="cancelSubBtn">Cancel my subscription</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         ACCOUNT
+    ====================================================== -->
+    <section class="dsec" id="secAccount">
+
+      <div class="dcard">
+        <div class="dcard__head"><h3>Profile</h3><button class="btn-primary" id="saveProfileBtn">Save</button></div>
+        <div class="save-ok" id="profileOk" style="display:none">✅ Saved</div>
+        <form id="profileForm" class="aform" novalidate>
+          <div class="aform__row">
+            <div class="fgrp"><label>Full name</label><input id="pName" type="text" placeholder="Jane Smith" /></div>
+            <div class="fgrp"><label>Business name</label><input id="pBiz" type="text" placeholder="Smith Plumbing" /></div>
+          </div>
+          <div class="fgrp"><label>Phone number</label><input id="pPhone" type="tel" placeholder="+44 7700 900123" /></div>
+        </form>
+      </div>
+
+      <div class="dcard">
+        <div class="dcard__head"><h3>Email address</h3></div>
+        <p class="acct-note">Current: <strong id="acctEmail">—</strong></p>
+        <form id="emailForm" class="aform" novalidate>
+          <div class="fgrp"><label>New email address</label><input id="newEmail" type="email" placeholder="new@example.com" /></div>
+          <button type="submit" class="btn-primary" id="changeEmailBtn">Update email</button>
+          <div class="save-ok" id="emailOk" style="display:none">✅ Confirmation sent — check your inbox</div>
+          <div class="err-msg" id="emailErr" style="display:none"></div>
+        </form>
+      </div>
+
+      <div class="dcard">
+        <div class="dcard__head"><h3>Change password</h3></div>
+        <form id="passwordForm" class="aform" novalidate>
+          <div class="aform__row">
+            <div class="fgrp"><label>New password</label><input id="newPass" type="password" placeholder="Min 8 characters" /></div>
+            <div class="fgrp"><label>Confirm password</label><input id="confPass" type="password" placeholder="Repeat password" /></div>
+          </div>
+          <button type="submit" class="btn-primary" id="changePassBtn">Update password</button>
+          <div class="save-ok" id="passOk" style="display:none">✅ Password updated</div>
+          <div class="err-msg" id="passErr" style="display:none"></div>
+        </form>
+      </div>
+
+      <div class="danger-zone">
+        <div class="danger-zone__head">
+          <h4>⚠️ Danger zone</h4>
+          <button class="danger-zone__toggle" id="deleteToggle">Show</button>
+        </div>
+        <div class="danger-zone__body" id="deleteBody" style="display:none">
+          <p>Deleting your account is permanent. All your data — calls, bookings and agent settings — will be erased immediately.</p>
+          <button class="btn-danger" id="deleteAcctBtn">Delete my account</button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ===== CONFIRM MODAL (cancel / delete) ===== -->
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-modal">
+      <h3 id="confirmTitle">Are you sure?</h3>
+      <p  id="confirmBody"></p>
+      <div class="confirm-modal__actions">
+        <button class="btn-outline" id="confirmNo">Cancel</button>
+        <button class="btn-danger"  id="confirmYes">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
