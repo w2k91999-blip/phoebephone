@@ -3,3 +3,7 @@ node_modules/
 *.local
 .DS_Store
 supabase/.temp/
+.agent/
+.claude/
+_tmp_*
+marketing/lead-gen/leads-*.csv
